@@ -144,8 +144,10 @@ a:hover {
 }
 
 .sidebar-logo-icon {
-  font-size: 32px;
-  filter: drop-shadow(0 0 8px var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 6px var(--primary));
   animation: pulse-glow 3s ease-in-out infinite;
 }
 

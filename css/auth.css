@@ -143,11 +143,17 @@
 }
 
 .logo-icon {
-    font-size: 52px;
-    display: block;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 4px 12px rgba(212, 82, 10, .4));
-    animation: pulse-glow 3s ease-in-out infinite;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 8px 16px rgba(212, 82, 10, .2));
+    animation: float-logo 4s ease-in-out infinite;
+}
+
+@keyframes float-logo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .logo-title {
