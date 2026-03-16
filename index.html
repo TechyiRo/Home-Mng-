@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>घर व्यवस्थापन | Ghar Vyavasthapan</title>
+    <meta name="description"
+        content="A complete home management application for Maharashtrian families – manage expenses, meals, family events, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+</head>
+
+<body class="auth-page">
+
+    <!-- ══════════════  AUTH SCREENS  ══════════════ -->
+    <div id="authContainer" class="auth-container">
+        <!-- Decorative rangoli background -->
+        <div class="rangoli-bg">
+            <div class="rangoli-circle r1"></div>
+            <div class="rangoli-circle r2"></div>
+            <div class="rangoli-circle r3"></div>
+            <div class="rangoli-petal p1"></div>
+            <div class="rangoli-petal p2"></div>
+            <div class="rangoli-petal p3"></div>
+            <div class="rangoli-petal p4"></div>
+        </div>
+
+        <div class="auth-card">
+            <!-- Logo -->
+            <div class="auth-logo">
+                <div class="logo-icon">🏠</div>
+                <h1 class="logo-title">घर व्यवस्थापन</h1>
+                <p class="logo-sub">Ghar Vyavasthapan</p>
+            </div>
+
+            <!-- Tab switcher -->
+            <div class="auth-tabs" id="authTabs">
+                <button class="tab-btn active" id="loginTabBtn" onclick="switchAuthTab('login')">प्रवेश करा</button>
+                <button class="tab-btn" id="registerTabBtn" onclick="switchAuthTab('register')">नोंदणी करा</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">📧 ईमेल / Username</label>
+                    <input type="text" id="loginEmail" placeholder="तुमचा ईमेल टाका" required autocomplete="username" />
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">🔒 पासवर्ड</label>
+                    <div class="input-pw-wrap">
+                        <input type="password" id="loginPassword" placeholder="पासवर्ड टाका" required
+                            autocomplete="current-password" />
+                        <span class="pw-toggle" onclick="togglePw('loginPassword',this)">👁️</span>
+                    </div>
+                </div>
+                <div id="loginError" class="form-error hidden"></div>
+                <button type="submit" class="btn-auth" id="loginBtn">
+                    <span>प्रवेश करा</span>
+                    <div class="btn-loader hidden"></div>
+                </button>
+                <p class="auth-switch">खाते नाही? <a href="#" onclick="switchAuthTab('register')">नोंदणी करा</a></p>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="registerForm" class="auth-form hidden" onsubmit="handleRegister(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regName">👤 पूर्ण नाव</label>
+                        <input type="text" id="regName" placeholder="तुमचे नाव" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="regRole">👑 भूमिका</label>
+                        <select id="regRole" required>
+                            <option value="admin" selected>कुटुंब प्रमुख (Admin)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">📧 ईमेल</label>
+                    <input type="email" id="regEmail" placeholder="तुमचा ईमेल" required autocomplete="email" />
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">📱 फोन नंबर</label>
+                    <input type="tel" id="regPhone" placeholder="+91 XXXXXXXXXX" />
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">🔒 पासवर्ड</label>
+                    <div class="input-pw-wrap">
+                        <input type="password" id="regPassword" placeholder="किमान 8 अक्षरे" required minlength="8" />
+                        <span class="pw-toggle" onclick="togglePw('regPassword',this)">👁️</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="regConfirm">🔒 पासवर्ड पुष्टी करा</label>
+                    <input type="password" id="regConfirm" placeholder="पासवर्ड पुन्हा टाका" required />
+                </div>
+                <div id="registerError" class="form-error hidden"></div>
+                <button type="submit" class="btn-auth">
+                    <span>नोंदणी करा</span>
+                </button>
+                <p class="auth-switch">आधीच खाते आहे? <a href="#" onclick="switchAuthTab('login')">प्रवेश करा</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ══════════════  MAIN APP  ══════════════ -->
+    <div id="mainApp" class="main-app hidden">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <span class="sidebar-logo-icon">🏠</span>
+                    <div>
+                        <div class="sidebar-logo-title">घर व्यवस्थापन</div>
+                        <div class="sidebar-logo-sub">Ghar Vyavasthapan</div>
+                    </div>
+                </div>
+                <button class="sidebar-close" id="sidebarClose" onclick="toggleSidebar()">✕</button>
+            </div>
+
+            <!-- User card -->
+            <div class="sidebar-user" id="sidebarUser"></div>
+
+            <!-- Nav links -->
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard',this)">
+                    <span class="nav-icon">🏡</span><span class="nav-label">डॅशबोर्ड</span>
+                </a>
+                <a href="#" class="nav-item" data-page="family" onclick="navigateTo('family',this)">
+                    <span class="nav-icon">👨‍👩‍👧‍👦</span><span class="nav-label">कुटुंब</span>
+                </a>
+                <a href="#" class="nav-item" data-page="expenses" onclick="navigateTo('expenses',this)">
+                    <span class="nav-icon">💰</span><span class="nav-label">घर खर्च</span>
+                </a>
+                <a href="#" class="nav-item" data-page="meals" onclick="navigateTo('meals',this)">
+                    <span class="nav-icon">🍛</span><span class="nav-label">स्वयंपाक नियोजन</span>
+                </a>
+                <a href="#" class="nav-item" data-page="planner" onclick="navigateTo('planner',this)">
+                    <span class="nav-icon">📅</span><span class="nav-label">आठवड्याचे नियोजन</span>
+                </a>
+                <a href="#" class="nav-item" data-page="location" onclick="navigateTo('location',this)">
+                    <span class="nav-icon">📍</span><span class="nav-label">स्थान ट्रॅकिंग</span>
+                </a>
+                <a href="#" class="nav-item" data-page="katta" onclick="navigateTo('katta',this)">
+                    <span class="nav-icon">💬</span><span class="nav-label">फॅमिली कट्टा</span>
+                </a>
+                <a href="#" class="nav-item" data-page="festivals" onclick="navigateTo('festivals',this)">
+                    <span class="nav-icon">🪔</span><span class="nav-label">सण-उत्सव</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings" onclick="navigateTo('settings',this)">
+                    <span class="nav-icon">⚙️</span><span class="nav-label">सेटिंग्ज</span>
+                </a>
+            </nav>
+
+            <button class="logout-btn" onclick="handleLogout()">
+                <span>🚪</span> बाहेर पडा
+            </button>
+        </aside>
+
+        <!-- SIDEBAR OVERLAY -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
+            <div class="topbar-title" id="topbarTitle">डॅशबोर्ड</div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="darkModeToggle" onclick="toggleDarkMode()" title="Dark Mode">🌙</button>
+                <button class="icon-btn notification-btn" onclick="showNotifications()" title="Notifications">
+                    🔔<span class="notif-badge" id="notifBadge">3</span>
+                </button>
+                <div class="topbar-avatar" id="topbarAvatar" onclick="navigateTo('settings',null)"></div>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT AREA -->
+        <main class="page-content" id="pageContent">
+            <!-- Pages are injected by JS -->
+        </main>
+
+    </div>
+
+    <!-- ══════════════  MODAL  ══════════════ -->
+    <div class="modal-overlay hidden" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- ══════════════  TOAST  ══════════════ -->
+    <div id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages/dashboard.js"></script>
+    <script src="js/pages/family.js"></script>
+    <script src="js/pages/expenses.js"></script>
+    <script src="js/pages/meals.js"></script>
+    <script src="js/pages/planner.js"></script>
+    <script src="js/pages/location.js"></script>
+    <script src="js/pages/katta.js"></script>
+    <script src="js/pages/festivals.js"></script>
+    <script src="js/pages/settings.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1515 @@
+/* ══════════════════════════════════════════
+   PAGES.CSS — All page-specific styles
+   (prevents CSP-blocked dynamic style injection)
+══════════════════════════════════════════ */
+
+/* ════════════  DASHBOARD  ════════════ */
+.dashboard-banner {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark), var(--secondary));
+    border-radius: var(--radius-xl);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.dashboard-banner::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .08);
+}
+
+.banner-greeting {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.banner-family {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+}
+
+.banner-date {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.banner-emoji {
+    font-size: 64px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .3));
+}
+
+.members-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.member-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 60px;
+}
+
+.member-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: 2px solid var(--border);
+    transition: transform 0.2s;
+}
+
+.member-avatar:hover {
+    transform: scale(1.1);
+}
+
+.member-name {
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.member-role {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.qa-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 8px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: all var(--tr);
+}
+
+.qa-btn:hover {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.qa-icon {
+    font-size: 24px;
+}
+
+.exp-chart-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.exp-legend {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-val {
+    margin-left: auto;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-type-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.task-task {
+    background: #2E7D32;
+}
+
+.task-appointment {
+    background: var(--primary);
+}
+
+.task-festival {
+    background: var(--accent-gold);
+}
+
+.task-reminder {
+    background: #1565C0;
+}
+
+.festival-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.festival-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+}
+
+.festival-emoji {
+    font-size: 28px;
+}
+
+.meal-today-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.meal-slot {
+    text-align: center;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 14px 10px;
+}
+
+.meal-slot-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.meal-slot-dish {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+/* ════════════  FAMILY  ════════════ */
+.member-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--tr);
+    box-shadow: var(--shadow-sm);
+}
+
+.member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.member-card-top {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+}
+
+.member-card-avatar {
+    font-size: 56px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .3));
+}
+
+.member-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .15), transparent 70%);
+}
+
+.member-card-body {
+    padding: 16px;
+    text-align: center;
+}
+
+.member-card-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.member-card-role-badge {
+    display: inline-block;
+    background: rgba(212, 82, 10, .12);
+    color: var(--primary);
+    border-radius: 99px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.member-card-phone {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.member-card-actions {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+}
+
+.member-card-actions .btn {
+    flex: 1;
+}
+
+.avatar-picker {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.avatar-opt {
+    font-size: 28px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.avatar-opt:hover {
+    background: var(--bg);
+    border-color: var(--border);
+}
+
+.avatar-opt.selected {
+    border-color: var(--primary);
+    background: rgba(212, 82, 10, .1);
+}
+
+/* ════════════  EXPENSES  ════════════ */
+.exp-filter-bar {
+    padding: 14px 16px;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    outline: none;
+    cursor: pointer;
+    transition: border-color var(--tr);
+}
+
+.filter-select:focus {
+    border-color: var(--primary);
+}
+
+/* ════════════  MEALS  ════════════ */
+.week-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+}
+
+.week-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.meal-grid-wrap {
+    overflow-x: auto;
+    padding: 0;
+}
+
+.meal-grid {
+    display: grid;
+    grid-template-columns: 90px repeat(7, 1fr);
+    gap: 0;
+    min-width: 700px;
+}
+
+.meal-header-cell {
+    background: var(--bg);
+    padding: 10px 6px;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    position: relative;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.meal-header-cell.empty {
+    background: transparent;
+    border: none;
+}
+
+.meal-header-cell.today {
+    background: rgba(212, 82, 10, .12);
+    color: var(--primary);
+}
+
+.today-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary);
+    margin: 3px auto 0;
+}
+
+.meal-row-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 8px 4px;
+    background: var(--bg);
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.meal-cell {
+    border: 1px solid var(--border);
+    min-height: 70px;
+    padding: 10px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: background var(--tr);
+    background: var(--bg-card);
+}
+
+.meal-cell:hover {
+    background: rgba(212, 82, 10, .06);
+}
+
+.meal-cell.has-dish {
+    background: rgba(212, 82, 10, .05);
+}
+
+.dish-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.add-dish-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.sugg-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sugg-chip {
+    padding: 5px 10px;
+    border-radius: 99px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    font-size: 11.5px;
+    cursor: pointer;
+    font-family: 'Tiro Devanagari Marathi', serif;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.sugg-chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(212, 82, 10, .08);
+}
+
+.grocery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.grocery-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+}
+
+.grocery-item input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.grocery-item label {
+    font-size: 13.5px;
+    cursor: pointer;
+    flex: 1;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.grocery-item.checked label {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+/* ════════════  PLANNER  ════════════ */
+.planner-week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.planner-day-col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    min-height: 300px;
+    transition: box-shadow var(--tr);
+}
+
+.planner-day-col.today {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(212, 82, 10, .15);
+}
+
+.planner-day-header {
+    padding: 10px 8px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.planner-day-header.today {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+.planner-day-header.today .pl-day-name,
+.planner-day-header.today .pl-day-date {
+    color: #FFF;
+}
+
+.pl-day-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.pl-day-date {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.pl-today-badge {
+    font-size: 9px;
+    background: rgba(255, 255, 255, .3);
+    color: #fff;
+    border-radius: 99px;
+    padding: 1px 6px;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.planner-day-tasks {
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.task-pill {
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 11.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.task-pill:hover {
+    transform: scale(1.02);
+}
+
+.task-pill.done-task {
+    opacity: 0.5;
+}
+
+.task-pill-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+}
+
+.task-pill-emoji {
+    font-size: 13px;
+}
+
+.task-pill-title {
+    font-weight: 600;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.task-pill-time {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.task-pill-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.task-pill-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0 2px;
+}
+
+.add-task-day {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    background: none;
+    border: 1.5px dashed var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.add-task-day:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.list-task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+}
+
+.list-task-check {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.list-task-item.done-task {
+    opacity: 0.6;
+}
+
+/* ════════════  LOCATION  ════════════ */
+.safety-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(46, 125, 50, .1), rgba(46, 125, 50, .05));
+    border-color: rgba(46, 125, 50, .3);
+}
+
+.safety-banner-icon {
+    font-size: 36px;
+}
+
+.safety-status {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 14px;
+    color: #2E7D32;
+}
+
+.safety-status.alert {
+    color: #DC2626;
+}
+
+.location-map-card .card-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+}
+
+.map-container {
+    height: 280px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9, #A5D6A7);
+    position: relative;
+    overflow: hidden;
+}
+
+.map-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .4) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.map-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 4px;
+}
+
+.map-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+    width: 8px;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 4px;
+}
+
+.map-pin {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    animation: pin-bounce 2s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes pin-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.pin-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: var(--shadow-md);
+}
+
+.pin-label {
+    background: rgba(0, 0, 0, .7);
+    color: #fff;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 2px;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pin-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    margin-top: 2px;
+    box-shadow: 0 0 0 4px rgba(212, 82, 10, .3);
+    animation: ripple 2s ease-in-out infinite;
+}
+
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(212, 82, 10, .5);
+    }
+
+    100% {
+        box-shadow: 0 0 0 12px rgba(212, 82, 10, 0);
+    }
+}
+
+.map-home {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.home-icon {
+    font-size: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .3));
+}
+
+.map-overlay-text {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.map-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.location-member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.location-member-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    transition: background var(--tr);
+}
+
+.location-member-card:hover {
+    background: var(--border);
+}
+
+.loc-member-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.loc-member-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.safety-feature-card {
+    text-align: center;
+}
+
+.safety-feature-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.safety-feature-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+/* ════════════  KATTA  ════════════ */
+.katta-tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.katta-tab {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 99px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--tr);
+    background: var(--bg);
+    color: var(--text-muted);
+    border: 1.5px solid var(--border);
+}
+
+.katta-tab.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.chat-container {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.chat-header {
+    padding: 14px 18px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-header-icon {
+    font-size: 28px;
+}
+
+.chat-header-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.chat-header-sub {
+    font-size: 11px;
+    color: rgba(255, 255, 255, .7);
+}
+
+.online-indicators {
+    display: flex;
+    gap: 4px;
+}
+
+.online-dot {
+    font-size: 20px;
+    position: relative;
+}
+
+.online-dot::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4CAF50;
+    border: 2px solid white;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+}
+
+.msg-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.msg-wrap.me {
+    flex-direction: row-reverse;
+}
+
+.msg-avatar {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.msg-bubble {
+    max-width: 70%;
+    border-radius: 16px;
+    padding: 10px 14px;
+    position: relative;
+}
+
+.msg-bubble.other {
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+    border-radius: 4px 16px 16px 16px;
+}
+
+.msg-bubble.me {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    border-radius: 16px 4px 16px 16px;
+}
+
+.msg-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.msg-bubble.me .msg-name {
+    color: rgba(255, 255, 255, .8);
+}
+
+.msg-text {
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.msg-image {
+    width: 200px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+}
+
+.msg-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    justify-content: flex-end;
+}
+
+.msg-time {
+    font-size: 10px;
+    opacity: 0.6;
+}
+
+.msg-read {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.msg-reactions {
+    display: flex;
+    gap: 4px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.react-chip {
+    background: rgba(255, 255, 255, .2);
+    padding: 2px 7px;
+    border-radius: 99px;
+    font-size: 12px;
+}
+
+.msg-bubble.other .react-chip {
+    background: var(--bg);
+}
+
+.msg-react-btn {
+    font-size: 11px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding: 2px 6px;
+}
+
+.msg-bubble:hover .msg-react-btn {
+    opacity: 0.7;
+}
+
+.chat-input-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-card);
+    flex-shrink: 0;
+}
+
+.chat-emoji-btn {
+    font-size: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.chat-emoji-btn:hover {
+    transform: scale(1.2);
+}
+
+.chat-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 99px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--bg);
+    outline: none;
+    transition: border-color var(--tr);
+}
+
+.chat-input:focus {
+    border-color: var(--primary);
+}
+
+.chat-send {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--tr);
+    flex-shrink: 0;
+}
+
+.chat-send:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-sm);
+}
+
+.emoji-picker {
+    padding: 8px 14px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-card);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.emoji-pick {
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.emoji-pick:hover {
+    transform: scale(1.3);
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.photo-card {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    transition: all var(--tr);
+}
+
+.photo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.photo-thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    padding: 8px 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.photo-meta {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 8px;
+    font-size: 10.5px;
+    color: var(--text-muted);
+}
+
+/* ════════════  FESTIVALS  ════════════ */
+.section-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.festival-highlight {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--tr);
+}
+
+.festival-highlight:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.fh-emoji {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.fh-name {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Tiro Devanagari Marathi', serif;
+    margin-bottom: 6px;
+}
+
+.fh-days {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.fh-date {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.festival-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    cursor: pointer;
+    transition: all var(--tr);
+    box-shadow: var(--shadow-sm);
+}
+
+.festival-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.fc-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.fc-emoji {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.fc-name {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.fc-days {
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.fc-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'Tiro Devanagari Marathi', serif;
+    line-height: 1.4;
+}
+
+.festival-detail-banner {
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid;
+    margin-bottom: 8px;
+}
+
+/* ════════════  SETTINGS  ════════════ */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-avatar-big {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    border: 3px solid var(--accent-gold);
+    flex-shrink: 0;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.profile-email {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 3px 0;
+}
+
+.profile-phone {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.profile-role-badge {
+    margin: 4px 0;
+}
+
+.settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.toggle-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    display: block;
+    width: 44px;
+    height: 24px;
+    background: var(--border);
+    border-radius: 99px;
+    cursor: pointer;
+    transition: background var(--tr);
+    position: relative;
+}
+
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: left var(--tr);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+}
+
+.toggle-input:checked+.toggle-label {
+    background: var(--primary);
+}
+
+.toggle-input:checked+.toggle-label::after {
+    left: 22px;
+}
+
+/* ════════════  APP ACTIVE BODY  ════════════ */
+body.app-active {
+    overflow: hidden;
+}
+
+body.app-active .page-content {
+    overflow-y: auto;
+    height: calc(100vh - var(--topbar-h));
+}
+
+/* ════════════  RESPONSIVE OVERRIDES  ════════════ */
+@media(max-width:1024px) {
+    .grid-2[style*="1.5fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .grid-3[style*="1.2fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .meal-today-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .planner-week-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-2[style*="1.5fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media(max-width:768px) {
+    .banner-emoji {
+        display: none;
+    }
+
+    .exp-chart-wrap {
+        flex-direction: column;
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .planner-week-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:480px) {
+    .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .planner-week-grid {
+        grid-template-columns: 1fr;
+    }
+}

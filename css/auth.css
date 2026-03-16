@@ -1,0 +1,320 @@
+/* ══════════════════════════════════════════
+   AUTH.CSS — Login / Register Screens
+══════════════════════════════════════════ */
+
+.auth-page {
+    background: var(--bg);
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rangoli decorative background */
+.rangoli-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.rangoli-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 82, 10, .15);
+    animation: spin-slow 20s linear infinite;
+}
+
+.r1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -200px;
+}
+
+.r2 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: -100px;
+    border-color: rgba(139, 26, 26, .12);
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.r3 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-color: rgba(212, 160, 23, .1);
+    animation-duration: 15s;
+}
+
+.rangoli-petal {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50% 0 50% 0;
+    background: rgba(212, 82, 10, .06);
+    animation: float-drift 6s ease-in-out infinite;
+}
+
+.p1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.p2 {
+    top: 70%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+.p3 {
+    bottom: 15%;
+    left: 20%;
+    animation-delay: 3s;
+}
+
+.p4 {
+    top: 40%;
+    right: 15%;
+    animation-delay: 4.5s;
+}
+
+@keyframes spin-slow {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float-drift {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(45deg);
+    }
+}
+
+/* ─── Auth Card ─── */
+.auth-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+    animation: slide-up 0.4s ease;
+}
+
+/* Top decorative strip */
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    background: linear-gradient(90deg, var(--primary), var(--accent-gold), var(--secondary));
+}
+
+/* ─── Logo ─── */
+.auth-logo {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.logo-icon {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 4px 12px rgba(212, 82, 10, .4));
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.logo-title {
+    font-family: 'Tiro Devanagari Marathi', serif;
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+.logo-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* ─── Tabs ─── */
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+    margin-bottom: 24px;
+    gap: 4px;
+}
+
+.tab-btn {
+    padding: 9px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all var(--tr);
+    font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.tab-btn.active {
+    background: var(--bg-card);
+    color: var(--primary);
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ─── Forms ─── */
+.auth-form {
+    animation: fade-in 0.25s ease;
+}
+
+.auth-form .form-group {
+    margin-bottom: 14px;
+}
+
+.input-pw-wrap {
+    position: relative;
+}
+
+.input-pw-wrap input {
+    padding-right: 44px;
+}
+
+.pw-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: opacity var(--tr);
+    user-select: none;
+}
+
+.pw-toggle:hover {
+    opacity: 1;
+}
+
+.form-error {
+    background: rgba(220, 38, 38, .1);
+    color: #DC2626;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(220, 38, 38, .2);
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: 'Tiro Devanagari Marathi', serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #FFF;
+    box-shadow: 0 4px 16px rgba(212, 82, 10, .4);
+    transition: all var(--tr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(212, 82, 10, .5);
+}
+
+.btn-auth:active {
+    transform: translateY(0);
+}
+
+.btn-loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-top-color: #FFF;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.auth-switch {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ─── Password strength ─── */
+.pw-strength-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 99px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.pw-strength-fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.3s ease, background 0.3s ease;
+    width: 0%;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 24px 20px;
+    }
+
+    .logo-title {
+        font-size: 22px;
+    }
+}
