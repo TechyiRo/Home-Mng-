@@ -5,9 +5,9 @@
 
 // Detect if we are running locally or on a production server
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_URL = isLocal 
-    ? 'http://localhost:5000/api' 
-    : 'https://home-mng-backend.onrender.com/api'; // Replace with your actual backend URL after deployment
+const API_URL = isLocal
+    ? 'http://localhost:5000/api'
+    : 'https://home-mng-backend-dp0b.onrender.com/api'; // Replace with your actual backend URL after deployment
 
 const DB = {
     async _fetch(endpoint) {
@@ -77,11 +77,11 @@ const DB = {
     async getSettings() { return await this._fetch('settings') || { familyName: 'आमचे कुटुंब', lang: 'mr', darkMode: false }; },
     async saveSettings(s) { return await this._post('settings', s); },
 
-    async getDarkMode() { 
+    async getDarkMode() {
         const s = await this.getSettings();
         return s.darkMode;
     },
-    async setDarkMode(v) { 
+    async setDarkMode(v) {
         const s = await this.getSettings();
         s.darkMode = v;
         await this.saveSettings(s);
@@ -91,7 +91,7 @@ const DB = {
     async migrateIfNeeded() {
         const keys = ['users', 'members', 'expenses', 'tasks', 'meals', 'messages', 'photos', 'locations', 'settings'];
         const remoteUsers = await this.getUsers();
-        
+
         // If users already exist in MongoDB, we won't auto-migrate to avoid overwriting newer data
         if (remoteUsers && remoteUsers.length > 0) return;
 
@@ -166,7 +166,7 @@ function getWeekStart(dateInput) {
     const day = d.getDay();
     const diff = d.getDate() - day + (day === 0 ? -6 : 1);
     const start = new Date(d.setDate(diff));
-    
+
     const year = start.getFullYear();
     const month = String(start.getMonth() + 1).padStart(2, '0');
     const dayOfMonth = String(start.getDate()).padStart(2, '0');
